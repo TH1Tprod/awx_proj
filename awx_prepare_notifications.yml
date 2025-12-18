@@ -1,7 +1,7 @@
 - name: Prepare notifications from templates
   host: localhost
   gather_facts: no
-
+# test comment
   tasks:
     - name: Skip it if the notification is already set
       meta: end_play
