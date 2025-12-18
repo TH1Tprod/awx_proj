@@ -4,7 +4,7 @@
 
   vars:
 
-  tasks:  
+  tasks:
     - name: Skip it if the notification is already set
       meta: end_play
       when: notification is defined
@@ -19,6 +19,7 @@
         msg: "notification '{{ notification_key }}' not found in notifications"
       when: notifications[notification_key] is not defined
 
-    - name: Set final notification
-      set_fact:
-        notification: "{{ notifications[notification_key] }}"
+    - name: Set final notification for workflow
+      set_stats:
+        data:
+          notification: "{{ notifications[notification_key] }}"
